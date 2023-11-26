@@ -1,13 +1,264 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+:root {
+  --very-dark-blue: hsl(235, 21%, 11%);
+  --very-dark-desaturated-blue: hsl(235, 24%, 19%);
+  --light-grayish-blue-dark: hsl(234, 39%, 85%);
+  --light-grayish-blue-hover: hsl(236, 33%, 92%);
+  --dark-grayish-blue-dark: hsl(234, 11%, 52%);
+  --very-dark-grayish-blue-dark: hsl(233, 14%, 35%);
+  --too-dark-grayish-blue: hsl(237, 14%, 26%);
+  --bgImage-dark: linear-gradient(
+      to right,
+      rgba(2, 11, 128, 0.3),
+      rgba(245, 5, 77, 0.3)
+    ),
+    url("../public/images/bg-desktop-dark.jpg") no-repeat center/cover;
+
+  --bgImage-light: url("../public/images/bg-desktop-light.jpg") no-repeat
+      center/cover,
+    linear-gradient(to left, rgba(20, 230, 202, 0.3), rgba(221, 21, 145, 0.3));
+  --bright-blue: hsl(220, 98%, 61%);
+  --check-background: linear-gradient(
+    to right,
+    hsl(192, 100%, 67%),
+    hsl(280, 87%, 65%)
+  );
+
+  /*light*/
+  --very-light-gray: hsl(0, 0%, 98%);
+  --very-light-grayish-blue: hsl(236, 33%, 92%);
+  --light-grayish-blue: hsl(233, 11%, 84%);
+  --dark-grayish-blue: hsl(236, 9%, 61%);
+  --very-dark-grayish-blue: hsl(235, 19%, 35%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 2.4rem;
+  font-family: "Josefin Sans", sans-serif;
+}
+footer {
+  font-size: 2.4rem;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+.logo {
+  padding-top: 8rem;
+  padding-bottom: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  width: 41%;
+}
+
+h1 {
+  color: var(--very-light-gray);
+  text-transform: uppercase;
+  letter-spacing: 15px;
+}
+.add-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-icon {
+  position: absolute;
+  left: 31.3%;
+  bottom: 2rem;
+}
+.list {
+  padding-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+}
+.checkbox,
+.btn-delete {
+  width: 2.3rem;
+  height: 2.3rem;
+  background: none;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 1px solid var(--very-dark-grayish-blue-dark);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  transform: translateY(2px);
+  text-align: center;
+}
+.checked {
+  background: var(--check-background);
+}
+.btn-delete {
+  text-align: center;
+  border: none;
+  opacity: 0;
+}
+.btn-delete:hover {
+  opacity: 1;
+}
+li span {
+  margin-right: auto;
+}
+.btn {
+  color: var(--very-dark-grayish-blue-dark);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  padding: 0.8rem;
+  transform: translateY(1px);
+}
+.btn:active {
+  color: var(--bright-blue);
+}
+.btn:hover {
+  color: var(--light-grayish-blue-dark);
+}
+
+.btn-clear {
+  transform: translateY(5px);
+}
+
+.active {
+  color: var(--bright-blue);
+}
+.footer-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  margin: auto;
+  list-style: none;
+}
+
+*::placeholder {
+  color: #999;
+}
+
+*:focus {
+  outline: 2px solid hsl(280, 87%, 65%);
+  border-radius: 50%;
+}
+/* DARK EFFECT */
+.app-dark {
+  background-color: var(--very-dark-blue);
+  color: var(--very-dark-grayish-blue-dark);
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  transition: all 0.3s;
+}
+.main-dark {
+  background: var(--bgImage-dark);
+  width: 100vw;
+  height: 17vw;
+  transition: all 0.5s;
+}
+.input-dark {
+  background-color: var(--very-dark-desaturated-blue);
+  width: 41%;
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.2rem 7rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.dark-list {
+  background-color: var(--very-dark-desaturated-blue);
+  color: var(--light-grayish-blue-dark);
+  list-style: none;
+  width: 41%;
+  margin-top: 20px;
+}
+.footer-info-dark {
+  background-color: var(--very-dark-desaturated-blue);
+  padding: 1rem 2.6rem;
+  width: 41%;
+  height: 5.4rem;
+  margin: auto;
+  border-radius: 0 0 7px 7px;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: end;
+}
+.list li {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  border-bottom: 1px solid;
+  justify-content: space-between;
+  gap: 1.8rem;
+  align-items: center;
+  padding: 1.2rem 3.2rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+/* LIGHT EFFECT */
+
+.app-light {
+  background-color: var(--very-light-grayish-blue);
+  color: var(--dark-grayish-blue);
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  transition: all 0.3s;
+}
+
+.main-light {
+  background: var(--bgImage-light);
+  width: 100vw;
+  height: 17vw;
+  transition: all 0.5s;
+}
+
+.input-light {
+  background-color: var(--very-light-gray);
+  width: 41%;
+  height: 6rem;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.2rem 7rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.light-list {
+  background-color: var(--very-light-gray);
+  color: var(--very-dark-grayish-blue);
+  list-style: none;
+  width: 41%;
+  margin-top: 20px;
+}
+
+.footer-info-light {
+  background-color: var(--very-light-gray);
+  padding: 1rem 2.6rem;
+  width: 41%;
+  height: 5.4rem;
+  margin: auto;
+  border-radius: 0 0 7px 7px;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: end;
 }
